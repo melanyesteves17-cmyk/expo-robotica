@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5 text-white">
+    <!-- Banner Principal + Cuenta Regresiva -->
+    <div class="text-center mb-5">
+        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold text-uppercase tracking-wide mb-3">
+            ⚡ Exposición Anual 2026
+        </span>
+        <h1 class="display-4 fw-bold text-white mb-3">EXPO DE TECNOLOGÍA Y ROBÓTICA</h1>
+
+        <!-- Contenedor de Cuenta Regresiva -->
+        <div class="d-flex justify-content-center gap-3 my-4" id="cuentaRegresiva">
+            <div class="bg-dark border border-secondary p-3 rounded-3 text-center" style="min-width: 80px;">
+                <span id="dias" class="display-6 fw-bold text-warning d-block">00</span>
+                <small class="text-uppercase text-light opacity-75">Días</small>
+            </div>
+            <div class="bg-dark border border-secondary p-3 rounded-3 text-center" style="min-width: 80px;">
+                <span id="horas" class="display-6 fw-bold text-warning d-block">00</span>
+                <small class="text-uppercase text-light opacity-75">Horas</small>
+            </div>
+            <div class="bg-dark border border-secondary p-3 rounded-3 text-center" style="min-width: 80px;">
+                <span id="minutos" class="display-6 fw-bold text-warning d-block">00</span>
+                <small class="text-uppercase text-light opacity-75">Min</small>
+            </div>
+            <div class="bg-dark border border-secondary p-3 rounded-3 text-center" style="min-width: 80px;">
+                <span id="segundos" class="display-6 fw-bold text-warning d-block">00</span>
+                <small class="text-uppercase text-light opacity-75">Seg</small>
+            </div>
+        </div>
+
+        <p class="lead text-light opacity-75 mx-auto" style="max-width: 750px;">
+            Explorá los proyectos interactivos por categoría o escribí para buscar un prototipo, alumno o componente en tiempo real.
+        </p>
+
+        <!-- Buscador Interactivo -->
+        <div class="mt-4 mx-auto" style="max-width: 550px;">
+            <input type="text" id="buscadorProyectos" class="form-control form-control-lg bg-dark text-white border-secondary rounded-pill px-4 shadow" placeholder="🔍 Buscar por proyecto, alumno o componente...">
+        </div>
+    </div>
+
+    <!-- Carrusel de Fotos Destacadas -->
+    <div class="mb-5 mx-auto" style="max-width: 900px;">
+        <div id="carruselExpo" class="carousel slide rounded-4 overflow-hidden shadow-lg border border-secondary border-opacity-50" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carruselExpo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carruselExpo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carruselExpo" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="4000">
+                    <img src="{{ url_for('static', filename='img/carrusel1.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 1">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
+                        <h5>Prototipos y Robótica</h5>
+                        <p class="small m-0">Proyectos creados por los alumnos durante el ciclo lectivo.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="{{ url_for('static', filename='img/carrusel2.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 2">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
+                        <h5>Demostraciones en Vivo</h5>
+                        <p class="small m-0">Presentación y prueba de funcionamiento de cada proyecto.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="{{ url_for('static', filename='img/carrusel3.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 3">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
+                        <h5>Diseño e Innovación</h5>
+                        <p class="small m-0">Modelado 3D, desarrollo web y sistemas dinámicos.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carruselExpo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carruselExpo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sección 1: Categorías por Colores -->
+    <div id="seccionCategorias">
+        <h3 class="fw-bold mb-4 text-center text-white">EXPLORÁ POR CATEGORÍA</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
+            <div class="col">
+                <a href="{{ url_for('categoria', color='amarillo') }}" class="text-decoration-none">
+                    <div class="card proyecto-card card-amarillo p-4 h-100 text-white border-0 shadow-lg text-center">
+                        <div class="fs-1 mb-2">🟨</div>
+                        <h4 class="fw-bold text-warning mb-2">HARDWARE</h4>
+                        <p class="small text-light opacity-75">Hardware & Mecánica</p>
+                        <div class="mt-auto pt-2">
+                            <span class="btn btn-outline-warning btn-sm rounded-pill px-3">Explorar →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{{ url_for('categoria', color='rojo') }}" class="text-decoration-none">
+                    <div class="card proyecto-card card-rojo p-4 h-100 text-white border-0 shadow-lg text-center">
+                        <div class="fs-1 mb-2">🟥</div>
+                        <h4 class="fw-bold text-danger mb-2">SOFTWARE</h4>
+                        <p class="small text-light opacity-75">Software & Programación</p>
+                        <div class="mt-auto pt-2">
+                            <span class="btn btn-outline-danger btn-sm rounded-pill px-3">Explorar →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{{ url_for('categoria', color='verde') }}" class="text-decoration-none">
+                    <div class="card proyecto-card card-verde p-4 h-100 text-white border-0 shadow-lg text-center">
+                        <div class="fs-1 mb-2">🟩</div>
+                        <h4 class="fw-bold text-success mb-2">STAND</h4>
+                        <p class="small text-light opacity-75">Stand & Competencias</p>
+                        <div class="mt-auto pt-2">
+                            <span class="btn btn-outline-success btn-sm rounded-pill px-3">Explorar →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{{ url_for('categoria', color='rosa') }}" class="text-decoration-none">
+                    <div class="card proyecto-card card-rosa p-4 h-100 text-white border-0 shadow-lg text-center">
+                        <div class="fs-1 mb-2">🩷</div>
+                        <h4 class="fw-bold text-info mb-2">HISTORIA</h4>
+                        <p class="small text-light opacity-75">Historia & Difusión</p>
+                        <div class="mt-auto pt-2">
+                            <span class="btn btn-outline-info btn-sm rounded-pill px-3">Explorar →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección 2: Resultados de Búsqueda -->
+    <div id="seccionResultados" class="d-none">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold text-warning m-0">RESULTADOS ENCONTRADOS:</h3>
+            <span id="contadorResultados" class="badge bg-secondary px-3 py-2 rounded-pill">0 proyectos</span>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="contenedorResultados">
+            {% for p in proyectos %}
+            <div class="col tarjeta-proyecto-wrapper d-none">
+                <div class="card h-100 proyecto-card card-{{ p.categoria }} text-white p-2">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge badge-id px-3 py-2 rounded-3">ID: {{ p.id }}</span>
+                                <span class="badge badge-comision text-light rounded-pill px-3 py-2">{{ p.comision }}</span>
+                            </div>
+                            <h4 class="fw-bold text-warning mb-3">{{ p.titulo }}</h4>
+                            <p class="text-light opacity-75 small mb-4 lh-base">{{ p.descripcion }}</p>
+                        </div>
+                        <div>
+                            <div class="p-3 mb-3 rounded-3 bg-black bg-opacity-40 border border-secondary border-opacity-25">
+                                <div class="small text-info fw-bold mb-1">👥 Integrantes:</div>
+                                <div class="small text-white fw-medium">{{ p.responsables }}</div>
+                            </div>
+                            <a href="{{ url_for('proyecto', slug=p.slug) }}" class="btn btn-tech w-100 py-2 rounded-3 text-center d-block text-decoration-none">
+                                Ver Ficha y Modelo 3D →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="mensajeSinResultados" class="text-center py-5 d-none">
+            <h4 class="text-white-50">No se encontraron proyectos que coincidan con la búsqueda.</h4>
+        </div>
+    </div>
+</div>
+{% endblock %}
