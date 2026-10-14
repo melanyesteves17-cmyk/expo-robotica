@@ -40,4 +40,3 @@ uvicorn==0.52.4
 watchdog==6.0.0
 websockets==16.1.1
 Werkzeug==3.1.8
-tenia esto dentro d la caroeta requiriments.txt
