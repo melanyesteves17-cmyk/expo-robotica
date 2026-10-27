@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 
 {% block content %}
@@ -31,4 +32,39 @@
         </form>
     </div>
 </div>
+=======
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Panel de Carga Multimedia (Expo Admin)</h2>
+    
+    <div class="card-proyecto" style="max-width: 500px; margin: 0 auto;">
+        <form action="/admin/subir" method="POST" enctype="multipart/form-data">
+            
+            <label>Seleccionar Proyecto:</label><br>
+            <select name="slug" style="width: 100%; padding: 8px; margin-bottom: 15px;" required>
+                {% for slug, p in proyectos.items() %}
+                <option value="{{ slug }}">[{{ p.categoria|upper }}] {{ p.titulo }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Tipo de Contenido:</label><br>
+            <select name="tipo" style="width: 100%; padding: 8px; margin-bottom: 15px;" required>
+                <option value="foto">Foto Principal (.jpg / .png)</option>
+                <option value="video">Video del Robot en Acción (.mp4)</option>
+                <option value="frame360">Fotograma para Vista 360°</option>
+            </select>
+
+            <label>N° de Frame (Solo si elegiste Vista 360°):</label><br>
+            <input type="number" name="frame_num" value="1" min="1" max="20" style="width: 100%; padding: 8px; margin-bottom: 15px;">
+
+            <label>Archivo:</label><br>
+            <input type="file" name="archivo" style="margin-bottom: 20px;" required><br>
+
+            <button type="submit" style="width: 100%; padding: 10px; background: #2ed573; border: none; font-weight: bold; cursor: pointer;">Subir Contenido</button>
+        </form>
+    </div>
+</div>
+>>>>>>> 4e958ecdf266c3cb32c59a4e10ac2a7d98e3b4c4
 {% endblock %}

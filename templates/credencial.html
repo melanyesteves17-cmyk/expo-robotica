@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -168,4 +169,176 @@
     </div>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Credencial - {{ proyecto.nombre }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        /* Contenedor con proporciones de Credencial Vertical */
+       .credencial-container {
+    width: 380px;
+    height: 580px;
+    position: relative;
+    background-image: url("{{ url_for('static', filename='img/marco_credencial.jpg') }}");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+    overflow: hidden;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+        .header-expo {
+            margin-top: 15px;
+        }
+        .header-expo h6 {
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: #00d2ff;
+            margin: 0;
+            font-weight: 700;
+        }
+        .header-expo h4 {
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: 2px 0 0 0;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+        }
+
+        .robot-info {
+            margin-top: 10px;
+        }
+        .robot-nombre {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.8);
+            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+        .info-item {
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+            color: #d1d5db;
+            text-align: left;
+            padding-left: 35px;
+        }
+        .info-item span {
+            font-weight: 700;
+            color: #00d2ff;
+        }
+
+        .qr-section {
+            margin-bottom: 10px;
+        }
+        .qr-box {
+            background: #ffffff;
+            padding: 8px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        .qr-box img {
+            width: 110px;
+            height: 110px;
+            display: block;
+        }
+        .qr-texto {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #00d2ff;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        @media print {
+            body {
+                background: none;
+            }
+            .btn-imprimir {
+                display: none !important;
+            }
+            .credencial-container {
+                box-shadow: none;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text-center position-fixed top-0 start-50 translate-middle-x mt-3 btn-imprimir">
+        <button onclick="window.print()" class="btn btn-warning fw-bold rounded-pill px-4 shadow">
+            🖨️ Imprimir Credencial
+        </button>
+        <a href="{{ url_for('proyecto', slug=proyecto.slug) }}" class="btn btn-outline-light rounded-pill px-3 ms-2">
+            Volver al Proyecto
+        </a>
+    </div>
+
+    <div class="credencial-container">
+        <!-- Encabezado de la Expo -->
+        <div class="header-expo">
+            <h6>EXPO ROBÓTICA 2026</h6>
+            <h4>ROBOT COMPETITION</h4>
+        </div>
+
+        <!-- Datos Automáticos del Robot -->
+        <div class="robot-info">
+            <div class="robot-nombre">{{ proyecto.nombre }}</div>
+            
+            {% if proyecto.integrantes %}
+            <div class="info-item">👤 <span>INTEGRANTES:</span> {{ proyecto.integrantes }}</div>
+            {% endif %}
+            
+            {% if proyecto.curso %}
+            <div class="info-item">🎓 <span>CURSO:</span> {{ proyecto.curso }}</div>
+            {% endif %}
+
+            <div class="info-item">⚡ <span>CATEGORÍA:</span> {{ proyecto.categoria|upper }}</div>
+        </div>
+
+        <!-- Código QR Generado Automáticamente -->
+        <div class="qr-section">
+            <div class="qr-box">
+                <!-- QR generado dinámicamente con la URL del proyecto -->
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ request.url_root }}proyecto/{{ proyecto.slug }}" alt="QR {{ proyecto.nombre }}">
+            </div>
+            <div class="qr-texto">
+                ESCANEÁ PARA CONOCER ESTE ROBOT
+            </div>
+        </div>
+    </div>
+
+</body>
+>>>>>>> 4e958ecdf266c3cb32c59a4e10ac2a7d98e3b4c4
 </html>

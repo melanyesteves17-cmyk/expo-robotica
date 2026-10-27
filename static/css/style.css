@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* === FONDO GENERAL CON GRADIENTE TECH Y EFECTO BRILLO === */
 body {
     background: radial-gradient(circle at 50% 10%, #1b2838 0%, #0d1117 60%, #05070a 100%) !important;
@@ -82,4 +83,90 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+=======
+/* === FONDO GENERAL CON GRADIENTE TECH Y EFECTO BRILLO === */
+body {
+    background: radial-gradient(circle at 50% 10%, #1b2838 0%, #0d1117 60%, #05070a 100%) !important;
+    color: #e6edf3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+/* Navbar futurista */
+.navbar {
+    background: rgba(13, 17, 23, 0.85) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+/* === TARJETAS DE PROYECTOS EN CUADRÍCULA (GRID) === */
+.proyecto-card {
+    background: rgba(22, 27, 34, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Colores de bordes y resplandor neón según categoría */
+.card-amarillo:hover { border-color: #f1c40f; box-shadow: 0 10px 25px rgba(241, 196, 15, 0.3); }
+.card-rojo:hover     { border-color: #ff4757; box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3); }
+.card-verde:hover    { border-color: #2ed573; box-shadow: 0 10px 25px rgba(46, 213, 115, 0.3); }
+.card-rosa:hover     { border-color: #ff6b81; box-shadow: 0 10px 25px rgba(255, 107, 129, 0.3); }
+
+/* Badges personalizados */
+.badge-id {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.badge-comision {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.75rem;
+}
+
+/* Botón interactivo */
+.btn-tech {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-tech:hover {
+    background: linear-gradient(135deg, #0b5ed7 0%, #084298 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+}
+/* Títulos con brillo */
+.text-warning {
+    color: #ffc107 !important;
+    text-shadow: 0 0 12px rgba(255, 193, 7, 0.3);
+}
+
+/* Animación suave para la entrada de tarjetas */
+.proyecto-card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+>>>>>>> 4e958ecdf266c3cb32c59a4e10ac2a7d98e3b4c4
 }

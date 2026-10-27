@@ -374,4 +374,8 @@ def credencial(slug):
     return render_template("credencial.html", proyecto=p)
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     app.run(debug=True)
+=======
+    app.run(debug=True)
+>>>>>>> 4e958ecdf266c3cb32c59a4e10ac2a7d98e3b4c4

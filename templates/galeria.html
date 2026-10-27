@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 
 {% block content %}
@@ -100,4 +101,108 @@
     </div>
     {% endif %}
 </div>
+=======
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5 text-white">
+    <!-- Banner Principal -->
+    <div class="text-center mb-5">
+        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold text-uppercase tracking-wide mb-3">
+            📸 Galería de la Expo
+        </span>
+        <h1 class="display-4 fw-bold text-white mb-2">DETRÁS DE ESCENA Y COMPETENCIAS</h1>
+        <p class="lead text-light opacity-75 mx-auto" style="max-width: 750px;">
+            Explorá los momentos destacados del trabajo en el taller, el armado de los prototipos y las pruebas dinámicas en las pistas[cite: 3].
+        </p>
+    </div>
+
+    <!-- Grilla de Tarjetas Interactivas de Galerías -->
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+        <!-- Tarjeta 1: Taller y Ensamble -->
+        <div class="col">
+            <div class="card bg-dark text-white p-4 h-100 border border-secondary border-opacity-50 rounded-4 shadow-lg text-center d-flex flex-column justify-content-between hover-card">
+                <div>
+                    <div class="fs-1 mb-3">🛠️</div>
+                    <h3 class="fw-bold text-warning mb-3">Taller y Ensamble</h3>
+                    <p class="text-light opacity-75 small lh-base mb-4">
+                        Proceso de soldadura de componentes, conexión de microcontroladores y armado mecánico de estructuras[cite: 3].
+                    </p>
+                </div>
+                <div>
+                    <a href="{{ url_for('galeria_seccion', seccion='taller') }}" class="btn btn-warning rounded-pill px-4 py-2 fw-bold text-dark shadow">
+                        🔧 Manos a la obra →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2: Fútbol y Pistas -->
+        <div class="col">
+            <div class="card bg-dark text-white p-4 h-100 border border-secondary border-opacity-50 rounded-4 shadow-lg text-center d-flex flex-column justify-content-between hover-card">
+                <div>
+                    <div class="fs-1 mb-3">⚽</div>
+                    <h3 class="fw-bold text-success mb-3">Fútbol y Pistas</h3>
+                    <p class="text-light opacity-75 small lh-base mb-4">
+                        Pruebas en la cancha de fútbol robótico, evitación de obstáculos y calibración de servomotores[cite: 3].
+                    </p>
+                </div>
+                <div>
+                    <a href="{{ url_for('galeria_seccion', seccion='futbol') }}" class="btn btn-success rounded-pill px-4 py-2 fw-bold text-white shadow">
+                        🏆 Desafíos →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visor de Fotos cuando se selecciona una sección -->
+    {% if seccion %}
+    <div class="mt-5 pt-4 border-top border-secondary border-opacity-25" id="vistaFotos">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <span class="badge bg-secondary px-3 py-1 rounded-pill mb-1">
+                    {{ fotos|length }} foto{% if fotos|length != 1 %}s{% endif %} encontrada{% if fotos|length != 1 %}s{% endif %}
+                </span>
+                <h3 class="fw-bold text-warning text-uppercase m-0">
+                    {% if seccion == 'taller' %}
+                        🛠️️ Fotos de Taller y Ensamble
+                    {% elif seccion == 'futbol' %}
+                        ⚽ Fotos de Fútbol y Pistas
+                    {% else %}
+                        Fotos de {{ seccion }}
+                    {% endif %}
+                </h3>
+            </div>
+            <a href="{{ url_for('galeria') }}" class="btn btn-outline-light rounded-pill px-4">
+                ✕ Cerrar vista
+            </a>
+        </div>
+
+        {% if fotos %}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            {% for foto in fotos %}
+            <div class="col">
+                <div class="card bg-dark border border-secondary border-opacity-50 rounded-4 overflow-hidden shadow hover-zoom">
+                    <img src="{{ url_for('static', filename='img/galeria/' ~ seccion ~ '/' ~ foto) }}" 
+                         class="card-img-top object-fit-cover w-100" 
+                         style="height: 240px;" 
+                         alt="Foto de {{ seccion }}">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5 bg-dark rounded-4 border border-secondary border-opacity-50 my-3">
+            <div class="fs-1 mb-2">📂</div>
+            <h4 class="text-white fw-bold mb-2">Aún no hay fotos en esta sección</h4>
+            <p class="text-white-50 m-0">
+                Guardá las imágenes adentro de la carpeta <code>static/img/galeria/{{ seccion }}/</code> para que aparezcan acá[cite: 3].
+            </p>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+>>>>>>> 4e958ecdf266c3cb32c59a4e10ac2a7d98e3b4c4
 {% endblock %}
