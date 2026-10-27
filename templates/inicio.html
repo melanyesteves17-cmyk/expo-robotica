@@ -8,7 +8,7 @@
         <div class="d-flex justify-content-center align-items-center gap-3 mb-3">
             <img src="{{ url_for('static', filename='logo_ieac.png') }}" alt="Logo Robótica IEAC" class="rounded-circle border border-warning shadow" style="width: 60px; height: 60px; object-fit: cover;">
             <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold text-uppercase tracking-wide">
-                 Exposición Anual 2026
+                Exposición Anual 2026
             </span>
         </div>
 
@@ -44,37 +44,59 @@
         </div>
     </div>
 
-    <!-- Carrusel de Fotos Destacadas -->
+    <!-- Carrusel de Fotos Destacadas (5 Fotos) -->
     <div class="mb-5 mx-auto" style="max-width: 900px;">
         <div id="carruselExpo" class="carousel slide rounded-4 overflow-hidden shadow-lg border border-secondary border-opacity-50" data-bs-ride="carousel">
+            
+            <!-- Indicadores -->
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carruselExpo" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#carruselExpo" data-bs-slide-to="1"></button>
                 <button type="button" data-bs-target="#carruselExpo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#carruselExpo" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#carruselExpo" data-bs-slide-to="4"></button>
             </div>
+
+            <!-- Contenido del Carrusel -->
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="4000">
-                    <img src="{{ url_for('static', filename='img/carrusel1.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 1">
+                    <img src="{{ url_for('static', filename='img/carrusel/carrusel1.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 1">
                     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
                         <h5>Prototipos y Robótica</h5>
                         <p class="small m-0">Proyectos creados por los alumnos durante el ciclo lectivo.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="4000">
-                    <img src="{{ url_for('static', filename='img/carrusel2.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 2">
+                    <img src="{{ url_for('static', filename='img/carrusel/carrusel2.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 2">
                     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
                         <h5>Demostraciones en Vivo</h5>
                         <p class="small m-0">Presentación y prueba de funcionamiento de cada proyecto.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="4000">
-                    <img src="{{ url_for('static', filename='img/carrusel3.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 3">
+                    <img src="{{ url_for('static', filename='img/carrusel/carrusel3.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 3">
                     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
                         <h5>Diseño e Innovación</h5>
                         <p class="small m-0">Modelado 3D, desarrollo web y sistemas dinámicos.</p>
                     </div>
                 </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="{{ url_for('static', filename='img/carrusel/carrusel4.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 4">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
+                        <h5>Hardware y Sensores</h5>
+                        <p class="small m-0">Implementación de microcontroladores y lógica de control.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="{{ url_for('static', filename='img/carrusel/carrusel5.jpg') }}" class="d-block w-100 object-fit-cover" style="height: 380px;" alt="Expo Foto 5">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
+                        <h5>Exposición Final</h5>
+                        <p class="small m-0">Compartiendo el trabajo realizado con toda la comunidad educativa.</p>
+                    </div>
+                </div>
             </div>
+
+            <!-- Controles -->
             <button class="carousel-control-prev" type="button" data-bs-target="#carruselExpo" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
