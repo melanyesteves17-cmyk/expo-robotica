@@ -372,6 +372,5 @@ def credencial(slug):
     if not p:
         abort(404)
     return render_template("credencial.html", proyecto=p)
-
-if __name__ == "__main__":git add .
+if __name__ == "__main__":
     app.run(debug=True)
