@@ -32,6 +32,14 @@ PROYECTOS = {
         "descripcion": "Calesita con movimiento",
         "hardware": ["Buzzer", "Motor DC"], "360_frames": 0
     },
+    "espiral-infinito": {
+        "id": "1F", "slug": "espiral-infinito", "categoria": "amarillo",
+        "titulo": "ESCULTURA CINÉTICA ESPIRAL INFINITO",
+        "comision": "Hardware & Mecánica", "responsables": "Equipo Taller",
+        "materiales": "Estructura impresa en 3D y motor de rotación continua",
+        "descripcion": "Efecto óptico de ilusión cinética impulsado por un sistema de engranajes y motor eléctrico para generar movimiento continuo.",
+        "hardware": ["Motor DC / Reductora", "Estructura 3D", "Fuente de alimentación"], "360_frames": 0
+    },
     "mano-robotica": {
         "id": "1E", "slug": "mano-robotica", "categoria": "amarillo",
         "titulo": "MANO ROBÓTICA ARTICULADA",
@@ -56,16 +64,8 @@ PROYECTOS = {
         "descripcion": "Consola arcade en miniatura desarrollada para ejecutar videojuegos retro clásicos.",
         "hardware": ["Pantalla LCD/OLED", "Pulsadores"], "360_frames": 0
     },
-    "robotito-joysticks": {
-        "id": "7", "slug": "robotito-joysticks", "categoria": "amarillo",
-        "titulo": "ROBOTITO (CONTROL DE BRAZOS Y CABEZA)",
-        "comision": "Hardware & Mecánica & Diseño", "responsables": "Esteves, Peñaloza, Gonzalez, Herrera",
-        "materiales": "3 servos, joysticks y Arduino Nano",
-        "descripcion": "Robot interactivo con mandos físicos directos para mover extremidades y cabeza en tiempo real.",
-        "hardware": ["Arduino Nano", "Shield Servos", "3 Servos", "Joysticks"], "360_frames": 0
-    },
     "AUTO-robobloq": {
-        "id": "8B", "slug": "tanque-robobloq", "categoria": "amarillo",
+        "id": "8B", "slug": "auto-robobloq", "categoria": "amarillo",
         "titulo": "AUTO ROBÓTICO CON APP ROBOBLOQ",
         "comision": "Hardware & Mecánica", "responsables": "Equipo Taller",
         "materiales": "Chasis de oruga y módulo inalámbrico",
@@ -98,20 +98,11 @@ PROYECTOS = {
         "descripcion": "Prototipo transformable de exhibición con diseño modular geométrico.",
         "hardware": ["Chasis impreso", "Servo"], "360_frames": 0
     },
-    "reloj-contador": {
-        "id": "22", "slug": "reloj-contador", "categoria": "amarillo",
-        "titulo": "CONTADOR RELOJ MECÁNICO",
-        "comision": "Stand & Game & Programación",
-        "responsables": "Baigorria",
-        "materiales": "7 servomotores y protoboard",
-        "descripcion": "Displays de dígitos numéricos accionados físicamente por mecanismos de servomotores.",
-        "hardware": ["7 Servos", "Fuente externa"], "360_frames": 0
-    },
     "evita-obstaculo": {
         "id": "23", "slug": "evita-obstaculo-ahumada", "categoria": "amarillo",
         "titulo": "EVITA OBSTÁCULOS AUTÓNOMO",
         "comision": "Stand & Hardware & Mecánica",
-        "responsables": "Ahumada, Estevesi",
+        "responsables": "Ahumada, Esteves",
         "materiales": "Kit de chasis y rueda loca",
         "descripcion": "Vehículo de exploración autónoma capaz de sortear paredes y objetos imprevistos.",
         "hardware": ["Ultrasonido", "Arduino Uno"], "360_frames": 0
@@ -124,15 +115,6 @@ PROYECTOS = {
         "materiales": "Servomotor y globo ocular",
         "descripcion": "Modelado simplificado de globo ocular con desplazamiento dinámico.",
         "hardware": ["Servomotor"], "360_frames": 0
-    },
-    "cinta-transportadora": {
-        "id": "26", "slug": "cinta-transportadora", "categoria": "amarillo",
-        "titulo": "CINTA TRANSPORTADORA INDUSTRIAL",
-        "comision": "Stand & Hardware & Mecánica",
-        "responsables": "Contreras",
-        "materiales": "Motor, cinta, sensor ultrasónico",
-        "descripcion": "Línea de montaje en miniatura con detención automática ante la presencia de objetos.",
-        "hardware": ["Motor DC", "Servo", "Ultrasonido"], "360_frames": 0
     },
     "modulo-mecanico-encina": {
         "id": "29", "slug": "modulo-mecanico-encina", "categoria": "amarillo",
@@ -223,7 +205,7 @@ PROYECTOS = {
         "descripcion": "Diseño espacial, estética visual y atención al público de la muestra anual.",
         "hardware": ["Luces", "Decoración"], "360_frames": 0
     },
- "saca-obstaculos": {
+ "Garra": {
         "id": "21", "slug": "saca-obstaculos", "categoria": "verde",
         "titulo": "ROBOT SACAR OBSTÁCULOS DE PISTA",
         "comision": "Stand & Búsqueda y Despeje", "responsables": "Teves, Marquessini",
