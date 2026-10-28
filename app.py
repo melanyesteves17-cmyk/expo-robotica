@@ -205,15 +205,15 @@ PROYECTOS = {
         "descripcion": "Diseño espacial, estética visual y atención al público de la muestra anual.",
         "hardware": ["Luces", "Decoración"], "360_frames": 0
     },
- "Garra": {
+    "garra": {
         "id": "21", "slug": "garra", "categoria": "verde",
-        "titulo": "ROBOT SACAR OBSTÁCULOS DE PISTA",
-        "comision": "Stand & Búsqueda y Despeje", "responsables": "Teves, Marquessini",
+        "titulo": "Garra robótica",
+        "comision": "Stand & Búsqueda y Despeje",
         "materiales": "Pala mecánica / garra",
-        "descripcion": "Robot despejador de pista diseñado para limpiar y ordenar el terreno en zonas de desafíos.",
+        "descripcion": "Garra robótica abre y cierra",
         "hardware": ["Pala de empuje", "Motores"], "360_frames": 0
     }
-}
+    }
 @app.route("/")
 def inicio():
     return render_template("inicio.html", proyectos=PROYECTOS.values())
