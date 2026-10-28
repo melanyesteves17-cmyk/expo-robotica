@@ -1,7 +1,21 @@
+import os
+from flask import Flask, render_template, abort
+
+app = Flask(__name__)
+
+# Definición de Categorías para los menús e inicio
+CATEGORIAS = {
+    "amarillo": {"slug": "amarillo", "nombre": "Hardware & Mecánica", "color": "amarillo"},
+    "rojo": {"slug": "rojo", "nombre": "Software & Programación", "color": "rojo"},
+    "verde": {"slug": "verde", "nombre": "Stand & Competencias", "color": "verde"}
+}
+
+@app.context_processor
+def inject_categorias():
+    return dict(categorias=CATEGORIAS)
+
+# ⚠️ ACÁ ESTABA FALTANDO LA VARIABLE PROYECTOS = {
 PROYECTOS = {
-    # ==========================================
-    # 🟨 CATEGORÍA AMARILLA (HARDWARE & MECÁNICA)
-    # ==========================================
     "mariposas": {
         "id": "1A", "slug": "mariposas", "categoria": "amarillo",
         "titulo": "MARIPOSAS ANIMATRONICAS",
@@ -218,3 +232,40 @@ PROYECTOS = {
         "hardware": ["Pala de empuje", "Motores"], "360_frames": 0
     }
 }
+@app.route("/")
+def inicio():
+    return render_template("inicio.html", proyectos=PROYECTOS.values())
+
+@app.route("/categoria/<color>")
+def categoria(color):
+    proyectos_filtrados = [p for p in PROYECTOS.values() if p["categoria"] == color]
+    return render_template("categoria.html", categoria=color, proyectos=proyectos_filtrados)
+
+@app.route("/proyecto/<slug>")
+def proyecto(slug):
+    p = PROYECTOS.get(slug)
+    if not p:
+        abort(404)
+    return render_template("proyecto.html", proyecto=p)
+
+@app.route("/galeria")
+def galeria():
+    return render_template("galeria.html", seccion=None, fotos=[])
+
+@app.route("/galeria/<seccion>")
+def galeria_seccion(seccion):
+    ruta = os.path.join(app.static_folder, 'img', 'galeria', seccion)
+    fotos = []
+    if os.path.exists(ruta):
+        fotos = [f for f in os.listdir(ruta) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp'))]
+    return render_template("galeria.html", seccion=seccion, fotos=fotos)
+
+@app.route("/credencial/<slug>")
+def credencial(slug):
+    p = PROYECTOS.get(slug)
+    if not p:
+        abort(404)
+    return render_template("credencial.html", proyecto=p)
+
+if __name__ == "__main__":
+    app.run(debug=True)
