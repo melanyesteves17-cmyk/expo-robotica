@@ -206,7 +206,7 @@ PROYECTOS = {
         "hardware": ["Luces", "Decoración"], "360_frames": 0
     },
  "Garra": {
-        "id": "21", "slug": "saca-obstaculos", "categoria": "verde",
+        "id": "21", "slug": "garra", "categoria": "verde",
         "titulo": "ROBOT SACAR OBSTÁCULOS DE PISTA",
         "comision": "Stand & Búsqueda y Despeje", "responsables": "Teves, Marquessini",
         "materiales": "Pala mecánica / garra",
