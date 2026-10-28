@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container py-5 text-white">
-    <!-- Botón Volver -->
+    <!-- Botón Volver y Credencial -->
     <div class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
         <a href="{{ url_for('categoria', color=proyecto.categoria) }}" class="btn btn-outline-light rounded-pill px-4">
             ← Volver a Categoría {{ proyecto.categoria | upper }}
@@ -61,29 +61,18 @@
             </div>
         </div>
 
-        <!-- Columna Derecha: Visor de Prototipo y Especificaciones -->
+        <!-- Columna Derecha: Foto del Prototipo -->
         <div class="col-lg-5">
             <div class="card proyecto-card p-4 h-100 border-0 shadow-lg text-center d-flex flex-column justify-content-between">
                 <div>
                     <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-25 px-3 py-1 rounded-pill small mb-3">
-                        VISTA PREVIA DE PROTOTIPO
+                        FOTO DEL PROTOTIPO
                     </span>
                     
-                    <div class="my-4 py-5 rounded-4 bg-black bg-opacity-60 border border-secondary border-opacity-25">
-                        <div class="display-1 mb-3 animate-bounce">🤖</div>
-                        <h4 class="fw-bold text-warning">{{ proyecto.titulo }}</h4>
-                        <p class="small text-light opacity-50 px-3 m-0">
-                            Rotación 360° y esquema de conexiones interactivo.
-                        </p>
+                  <div class="my-3">
+                        <!-- Muestra la foto según el slug del proyecto, formato .jpg -->
+                        <img src="{{ url_for('static', filename='img/proyectos/' ~ proyecto.slug ~ '.jpg') }}" 
+                             class="img-fluid rounded-4 border border-secondary border-opacity-50 shadow w-100" 
+                             style="max-height: 320px; object-fit: cover;" 
+                             alt="{{ proyecto.titulo }}">
                     </div>
-                </div>
-
-                <div class="p-3 rounded-3 bg-dark bg-opacity-60 border border-secondary border-opacity-25 text-start">
-                    <div class="small text-warning fw-bold mb-1">⚡ Alimentación / Voltaje:</div>
-                    <div class="small text-light opacity-75">5V / 12V LiPo Rechargeable Pack</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
