@@ -1,12 +1,14 @@
-<<<<<<< HEAD
 {% extends "base.html" %}
 
 {% block content %}
 <div class="container py-5 text-white">
     <!-- Botón Volver -->
-    <div class="mb-4">
+    <div class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
         <a href="{{ url_for('categoria', color=proyecto.categoria) }}" class="btn btn-outline-light rounded-pill px-4">
             ← Volver a Categoría {{ proyecto.categoria | upper }}
+        </a>
+        <a href="{{ url_for('credencial', slug=proyecto.slug) }}" target="_blank" class="btn btn-outline-info rounded-pill px-4">
+            🪪 Ver Credencial / Colgante
         </a>
     </div>
 
@@ -85,96 +87,3 @@
     </div>
 </div>
 {% endblock %}
-<a href="{{ url_for('credencial', slug=proyecto.slug) }}" target="_blank" class="btn btn-outline-info rounded-pill px-4">
-    🪪 Ver Credencial / Colgante
-=======
-{% extends "base.html" %}
-
-{% block content %}
-<div class="container py-5 text-white">
-    <!-- Botón Volver -->
-    <div class="mb-4">
-        <a href="{{ url_for('categoria', color=proyecto.categoria) }}" class="btn btn-outline-light rounded-pill px-4">
-            ← Volver a Categoría {{ proyecto.categoria | upper }}
-        </a>
-    </div>
-
-    <div class="row g-4">
-        <!-- Columna Izquierda: Información Principal -->
-        <div class="col-lg-7">
-            <div class="card proyecto-card p-4 h-100 border-0 shadow-lg">
-                <!-- Badges / Etiquetas -->
-                <div class="d-flex align-items-center gap-2 mb-3">
-                    <span class="badge badge-id px-3 py-2 rounded-3 fs-6">ID: {{ proyecto.id }}</span>
-                    <span class="badge badge-comision px-3 py-2 rounded-pill text-uppercase">{{ proyecto.comision }}</span>
-                    <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill ms-auto">
-                        ● Prototipo Operativo
-                    </span>
-                </div>
-
-                <!-- Título y Descripción -->
-                <h1 class="display-6 fw-bold text-warning mb-3">{{ proyecto.titulo }}</h1>
-                <p class="lead text-light opacity-90 mb-4 lh-base">{{ proyecto.descripcion }}</p>
-
-                <hr class="border-secondary opacity-25 mb-4">
-
-                <!-- Integrantes / Creadores -->
-                <div class="mb-4">
-                    <h5 class="fw-bold text-info mb-2">👥 Creadores y Responsables:</h5>
-                    <div class="p-3 rounded-3 bg-black bg-opacity-40 border border-secondary border-opacity-25 fs-5 fw-medium text-white">
-                        {{ proyecto.responsables }}
-                    </div>
-                </div>
-
-                <!-- Materiales e Insumos -->
-                <div class="mb-4">
-                    <h5 class="fw-bold text-info mb-2">🛠️ Materiales e Insumos:</h5>
-                    <p class="text-light opacity-75 fs-6 m-0 bg-dark bg-opacity-50 p-3 rounded-3 border border-secondary border-opacity-10">
-                        {{ proyecto.materiales }}
-                    </p>
-                </div>
-
-                <!-- Hardware y Componentes -->
-                <div>
-                    <h5 class="fw-bold text-info mb-3">🔌 Componentes Principales:</h5>
-                    <div class="d-flex flex-wrap gap-2">
-                        {% for hw in proyecto.hardware %}
-                        <span class="badge bg-primary bg-opacity-25 text-info border border-info border-opacity-50 fs-6 px-3 py-2 rounded-pill">
-                            ⚡ {{ hw }}
-                        </span>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Columna Derecha: Visor de Prototipo y Especificaciones -->
-        <div class="col-lg-5">
-            <div class="card proyecto-card p-4 h-100 border-0 shadow-lg text-center d-flex flex-column justify-content-between">
-                <div>
-                    <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-25 px-3 py-1 rounded-pill small mb-3">
-                        VISTA PREVIA DE PROTOTIPO
-                    </span>
-                    
-                    <div class="my-4 py-5 rounded-4 bg-black bg-opacity-60 border border-secondary border-opacity-25">
-                        <div class="display-1 mb-3 animate-bounce">🤖</div>
-                        <h4 class="fw-bold text-warning">{{ proyecto.titulo }}</h4>
-                        <p class="small text-light opacity-50 px-3 m-0">
-                            Rotación 360° y esquema de conexiones interactivo.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="p-3 rounded-3 bg-dark bg-opacity-60 border border-secondary border-opacity-25 text-start">
-                    <div class="small text-warning fw-bold mb-1">⚡ Alimentación / Voltaje:</div>
-                    <div class="small text-light opacity-75">5V / 12V LiPo Rechargeable Pack</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
-<a href="{{ url_for('credencial', slug=proyecto.slug) }}" target="_blank" class="btn btn-outline-info rounded-pill px-4">
-    🪪 Ver Credencial / Colgante
->>>>>>> 4e958ecdf266c3cb32c59a4e10ac2a7d98e3b4c4
-</a>
